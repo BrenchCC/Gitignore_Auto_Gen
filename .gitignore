@@ -1,10 +1,4 @@
-import os
-import logging
-import argparse
-
-logger = logging.getLogger("gitignore_generator")
-
-GITIGNORE_CONTENT = r"""# Byte-compiled / optimized / DLL files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
@@ -212,50 +206,3 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-"""
-
-
-def write_gitignore(target_path: str):
-    """
-    Writes the predefined gitignore content to the specified directory.
-
-    Args:
-        target_path (str): The directory path where the .gitignore file will be created.
-    """
-    file_path = os.path.join(target_path, ".gitignore")
-
-    if not os.path.isdir(target_path):
-        logger.error(f"Directory not found: {target_path}")
-        return
-
-    if os.path.exists(file_path):
-        logger.warning(f".gitignore already exists at {file_path}. Aborting to prevent overwrite.")
-        return
-
-    try:
-        with open(file_path, "w", encoding="utf-8") as f:
-            f.write(GITIGNORE_CONTENT)
-        logger.info(f"Successfully created .gitignore at {file_path}")
-    except IOError as e:
-        logger.error(f"Failed to write file: {e}")
-
-
-def main():
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', handlers=[logging.StreamHandler()])
-
-    parser = argparse.ArgumentParser(description="Generate a standard Python .gitignore file.")
-    parser.add_argument(
-        "--path",
-        nargs="?",
-        default=".",
-        type=str,
-        help="The target directory path (default: current directory)"
-    )
-
-    args = parser.parse_args()
-    
-    write_gitignore(args.path)
-
-
-if __name__ == "__main__":
-    main()
