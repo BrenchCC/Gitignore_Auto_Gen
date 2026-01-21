@@ -33,6 +33,7 @@ share/python-wheels/
 MANIFEST
 .DS_Store
 .vscode
+logs/
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
