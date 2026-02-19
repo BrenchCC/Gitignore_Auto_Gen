@@ -430,6 +430,7 @@ __marimo__/
 # Code Agent
 AGENTS.md
 CLAUDE.md
+.claude
 """
 
 
@@ -447,8 +448,17 @@ def write_gitignore(target_path: str):
         return
 
     if os.path.exists(file_path):
-        logger.warning(f".gitignore already exists at {file_path}. Aborting to prevent overwrite.")
-        return
+        logger.warning(f".gitignore already exists at {file_path}")
+        while True:
+            choice = input("Do you want to overwrite the existing file? (y/n): ").strip().lower()
+            if choice == "y" or choice == "yes":
+                logger.info("Overwriting existing .gitignore file")
+                break
+            elif choice == "n" or choice == "no":
+                logger.info("Aborting to prevent overwrite")
+                return
+            else:
+                logger.warning("Please enter 'y' (yes) or 'n' (no)")
 
     try:
         with open(file_path, "w", encoding="utf-8") as f:
