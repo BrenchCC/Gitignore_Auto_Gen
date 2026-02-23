@@ -431,6 +431,7 @@ __marimo__/
 AGENTS.md
 CLAUDE.md
 .claude
+.omx
 """
 
 
