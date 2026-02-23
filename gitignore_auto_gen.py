@@ -432,6 +432,7 @@ AGENTS.md
 CLAUDE.md
 .claude
 .omx
+.omc
 """
 
 
