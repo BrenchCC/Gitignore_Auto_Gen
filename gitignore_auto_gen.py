@@ -433,6 +433,8 @@ CLAUDE.md
 .claude
 .omx
 .omc
+.codex*
+.claude*
 """
 
 
