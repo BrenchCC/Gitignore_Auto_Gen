@@ -210,6 +210,9 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Trae
+.trae/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
@@ -421,6 +424,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Trae
+.trae/
 
 # Marimo
 marimo/_static/
